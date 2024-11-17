@@ -1,0 +1,98 @@
+/* Общие стили для всего документа */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #c1e0ec; /* Светлый фон пастельного оттенка */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+}
+
+/* Стили для navbar */
+nav {
+    position: fixed; /* Закрепить навигацию сверху */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px 0;
+  }
+  
+  .container {
+    max-width: 1200px; /* Ограничиваем максимальную ширину контейнера */
+    margin: 0 auto; /* Центрируем контейнер по горизонтали */
+  }
+  
+  .navbar-nav {
+    display: flex;
+    justify-content: flex-end; /* Выравниваем элементы по правому краю */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin-left: 20px; /* Отступы между кнопками */
+  }
+  
+  .nav-link {
+    color: #4a90e2;
+    font-size: 18px;
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    color: #357ab7;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: #4a90e2; /* Синий цвет для заголовка */
+    margin-bottom: 70px;
+}
+
+/* Описание под заголовком */
+p.lead {
+    font-size: 1.5rem;
+    color: #000000;
+    line-height: 1.6;
+}
+
+/* Стиль для контейнера с изображениями и текстом */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Стили для колонки с изображениями */
+.col-md-6 {
+    width: 100%;
+    max-width: 48%; /* Максимальная ширина для изображений */
+    margin-bottom: 20px;
+    margin-top: 60px;
+}
+
+/* Карусель изображений */
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Стили для колонки с текстом */
+.col-md-6 h1, .col-md-6 p {
+    margin-top: 30px;
+}
+
+/* Простой адаптивный дизайн: на маленьких экранах колонки будут занимать 100% ширины */
+@media (max-width: 768px) {
+    .col-md-6 {
+        width: 100%;
+    }
+}
