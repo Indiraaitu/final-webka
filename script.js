@@ -8,10 +8,11 @@ document.getElementById('registerForm')?.addEventListener('submit', function(eve
     const lastName = document.getElementById('lastName').value;
     const age = document.getElementById('age').value;
     const gender = document.getElementById('gender').value;
+    const role = document.getElementById('age').value;
 
     // Проверка обязательных полей
-    if (!username || !password || !firstName || !lastName || !age || !gender) {
-        alert('Пожалуйста, заполните все обязательные поля.');
+    if (!username || !password || !firstName || !lastName || !age || !gender || !role ) {
+        alert('Please fill everything.');
         return;
     }
 
@@ -23,6 +24,7 @@ document.getElementById('registerForm')?.addEventListener('submit', function(eve
         lastName,
         age,
         gender,
+        role,
     };
 
     // Отправляем данные на сервер с помощью fetch
@@ -54,7 +56,7 @@ document.getElementById('loginForm')?.addEventListener('submit', function(event)
 
     // Проверка обязательных полей
     if (!username || !password) {
-        alert('Пожалуйста, введите имя пользователя и пароль.');
+        alert('Please input username and password.');
         return;
     }
 
@@ -80,6 +82,6 @@ document.getElementById('loginForm')?.addEventListener('submit', function(event)
     })
     .catch(error => {
         console.error('Ошибка входа:', error);
-        alert('Неверные данные для входа. Пожалуйста, попробуйте снова.');
+        alert('Incorrect username or password, please input them again.');
     });
 });

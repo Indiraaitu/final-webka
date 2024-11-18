@@ -1,49 +1,186 @@
+/* Общие стили для всей страницы */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+  font-family: 'Arial', sans-serif;
+  background-color: #8edfff; 
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Минимальная высота страницы 100% */
+}
+
+h1, h2 {
+  text-align: center;
+  color: #fff;
+  margin: 20px 0;
+}
+
+/* ---------- Основные контейнеры ---------- */
+main {
+  flex: 1; /* Заполняет оставшееся пространство */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+/* ---------- Шапка ---------- */
+header {
+  background-color: #424242;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  color: #fff;
+  font-size: 2.5rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #0077c2;
+}
+
+/* ---------- Карточки контента ---------- */
+.article {
+  background-color: #263238;
+  border: 1px solid #37474F;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px;
+  width: 100%; 
+  text-align: center;
+}
+
+.article:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.article img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* ---------- Стили для кнопок ---------- */
+button, .cta-button {
+  background-color: #ffd700; 
+  color: #333;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover, .cta-button:hover {
+  background-color: #e6b800; 
+  transform: translateY(-5px);
+}
+
+/* ---------- Формы ---------- */
+form {
+  background-color: #404c52;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+form label {
+  color: #fff;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+form input[type="text"], 
+form input[type="email"], 
+form input[type="password"], 
+form input[type="number"], 
+form select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+form input:focus, form select:focus {
+  border: 1px solid #ffeb3b;
+  box-shadow: 0 0 8px rgba(255, 235, 59, 0.6);
+  outline: none;
+}
+
+form input[type="submit"] {
+  background-color: #3b76ff; 
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+  background-color: #0056b3; 
+}
+
+/* ---------- Мультимедиа адаптивность ---------- */
+@media (max-width: 900px) {
+  .article {
+    width: 100%; 
   }
-  
-  h1 {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  form {
-    width: 300px;
+}
+
+@media (max-width: 600px) {
+  form, .article {
+    width: 100%; 
     margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
-  input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #006803;
-  }
+}
 
-  p {
-    text-align: center;
-    margin-top: 50px;
-  }
-
-  
+/* ---------- Подвал ---------- */
+footer {
+  background-color: #000000;
+  color: #c6a4a4;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}

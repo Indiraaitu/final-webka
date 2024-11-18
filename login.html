@@ -4,28 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/styles1.css"> <!-- Ссылка на стили -->
+    <link rel="stylesheet" href="/styles1.css"> 
 </head>
 <body>
-    <script src="/script.js"></script>
-    <div class="container">
+    <header>
         <h1>Login</h1>
-        <form action="/login" method="POST">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/register.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="form-section">
+            <h2>Welcome Back!</h2>
+            <p>Please log in to access your account and manage your portfolio.</p>
+            <form action="/login" method="POST" class="form-container">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div class="form-footer">
+                <p>Don't have an account? <a href="/register.html">Register here</a></p>
+                <a href="/" class="btn-link">Back to Main Page</a>
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="form-group">
-                <label for="2fa">2FA Code:</label>
-                <input type="text" id="2fa" name="2faCode">
-            </div>
-            <button type="submit">Login</button>
-        </form>
-        <p>Don't have an account? <a href="/register">Register here</a></p>
-    </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Zhaksygali Indira, BDA-2301</p>
+    </footer>
 </body>
 </html>

@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <!-- Подключение Bootstrap через CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Подключение кастомных стилей -->
+    <title>E-Sport Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">My Portfolio</a>
-            <div class="navbar-collapse">
-                <ul class="navbar-nav ml-auto">
+            <a class="navbar-brand" href="#">E-Sport Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="#">Post</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Login</a>
@@ -25,17 +28,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/register">Register</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container mt-4">
+    <!-- Main Content -->
+    <main class="container my-5">
         <div class="row">
-            <!-- Картинки слева -->
+            <!-- Carousel Section -->
             <div class="col-md-6">
                 <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
@@ -60,17 +61,80 @@
                 </div>
             </div>
 
-            <!-- Текст с приветствием справа -->
-            <div class="col-md-6">
-                <h1 class="display-4">Stars of E-Sport of Valorant</h1>
+            <!-- Intro Text Section -->
+            <div class="col-md-6 d-flex flex-column justify-content-center">
+                <h1 class="display-5">Stars of Valorant E-Sports</h1>
                 <p class="lead">
-                    The photos of the most recognisable teams in Valorant history. This portfolio highlights several E-Sport teams and players, who already won hearts of millions of fans all over the world.
+                    Explore the most recognizable teams and players in Valorant's E-Sports history. Build your own portfolio and showcase your passion for gaming!
                 </p>
             </div>
         </div>
-    </div>
 
-    <!-- Подключение Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- News Section -->
+        <section id="news" class="my-5">
+            <h2>Latest News</h2>
+            <div id="news-articles" class="row">
+                <!-- News will be loaded dynamically here -->
+            </div>
+        </section>
+
+        <!-- Exchange Rates Section -->
+        <section id="exchange-rate" class="my-5">
+            <h2>Exchange Rates</h2>
+            <div id="exchange-container" class="row">
+                <!-- Exchange rates will be loaded dynamically here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2024 E-Sport Portfolio. All rights reserved.
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Axios -->
+    <script>
+        // Интеграция NewsAPI для отображения новостей
+        axios.get('https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=0a16b8d9799945b2920006b943558aa2')
+          .then(response => {
+            const articles = response.data.articles.slice(0, 2);  
+            const newsContainer = document.getElementById('news-articles');
+            articles.forEach(article => {
+              const articleElement = document.createElement('div');
+              articleElement.classList.add('article');
+              articleElement.innerHTML = `
+                <a href="${article.url}" target="_blank">
+                  <img src="${article.urlToImage}" alt="${article.title}">
+                </a>
+                <h3>${article.title}</h3>
+                <p>${article.description}</p>
+              `;
+              newsContainer.appendChild(articleElement);
+            });
+          })
+          .catch(error => console.error('Error fetching news:', error));
+    
+        // Интеграция API для отображения валюты
+        axios.get('https://v6.exchangerate-api.com/v6/a245ebd18ba787b10bd4715d/latest/USD')
+          .then(response => {
+            const exchange = response.data.conversion_rates;
+            const exchangeContainer = document.getElementById('exchange-rate');
+            if (!exchange) {
+                exchangeContainer.innerHTML = '<p>No exchange rates available.</p>';
+                return;
+            }
+            for (const currency in exchange) {
+                const exchangeElement = document.createElement('div');
+                exchangeElement.classList.add('exchange-rate');
+                exchangeElement.innerHTML = `
+                <p><strong>${currency}:</strong> ${exchange[currency]}</p>
+                `;
+              exchangeContainer.appendChild(exchangeElement);
+            }
+          })
+          .catch(error => console.error('Error fetching exchange rates:', error));
+      </script>
 </body>
 </html>
