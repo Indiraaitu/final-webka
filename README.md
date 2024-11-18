@@ -17,7 +17,9 @@ Main pages are login page, registration and main pages, main page having all inf
 
 # Report
 
-Project was made by Zhaksygali Indira, BDA-2301. **E-Sport Portfolio**
+Project was made by Zhaksygali Indira, BDA-2301, github projects AI were used as an additional help to fix bugs
+
+**E-Sport Portfolio**
 
 E-Sport Portfolio is a web application designed for creating and managing gaming portfolios. Users can register, log in, upload images of their achievements, and manage their projects. The app features two-factor authentication (2FA) for enhanced security. Administrators have access to a control panel where they can manage users and their content.
 
